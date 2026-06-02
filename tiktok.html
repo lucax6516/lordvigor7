@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAMP-USA</title>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MKF9HT6T');</script>
+  <!-- End Google Tag Manager -->
+  <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+<link rel="preload" href="https://scripts.converteai.net/5eacad5b-3bd7-422a-ba9d-81810e988eda/players/6a1f5ac8c2771546fc15b6dd/v4/player.js" as="script">
+<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+<link rel="preload" href="https://cdn.converteai.net/5eacad5b-3bd7-422a-ba9d-81810e988eda/6a1f5a69dd901078df46f0b8/main.m3u8" as="fetch">
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="dns-prefetch" href="https://license.vturb.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: #fff;
+      color: #333;
+    }
+
+    /* Header */
+    .header {
+      background: #cc0000;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header h1 {
+      color: #fff;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    #viewer-count {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 400;
+      margin: 0;
+    }
+
+    /* Banner de urgência */
+    .urgency-banner {
+      background: #990000;
+      color: #fff;
+      text-align: center;
+      padding: 10px 15px;
+      font-size: 14px;
+    }
+
+    .urgency-banner strong {
+      font-weight: 700;
+    }
+
+    /* Seção do vídeo */
+    .video-section {
+      background: #fff;
+      padding: 30px 15px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .video-wrapper {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .sound-notice {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 16px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #333;
+    }
+
+    .sound-icon {
+      width: 22px;
+      height: 22px;
+    }
+
+    /* Seção de preços (oculta inicialmente) */
+    .pricing-section {
+      background: #f8f9fa;
+      padding: 40px 15px;
+      display: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .pricing-section.revealed {
+      display: flex;
+    }
+
+    .price-card {
+      background: #fff;
+      border: 2px solid #ddd;
+      border-radius: 16px;
+      padding: 30px 20px 25px;
+      width: 280px;
+      text-align: center;
+      position: relative;
+      transition: transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .price-card.featured {
+      width: 320px;
+      border: 2px solid #ff8c00;
+      box-shadow: 0 0 25px rgba(255, 140, 0, 0.6);
+      transform: scale(1.05);
+      z-index: 2;
+    }
+
+    .most-popular-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ff8c00;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      padding: 5px 20px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    .plan-title {
+      font-size: 22px;
+      font-weight: 900;
+      color: #1a1a1a;
+      text-transform: uppercase;
+      margin-top: 15px;
+      margin-bottom: 8px;
+    }
+
+    .quantity {
+      font-size: 32px;
+      font-weight: 900;
+      color: #1a1a1a;
+      line-height: 1.1;
+    }
+
+    .supply-duration {
+      font-size: 14px;
+      color: #ff8c00;
+      font-weight: 700;
+      margin-top: 4px;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+    }
+
+    .product-img {
+      width: 180px;
+      height: 150px;
+      margin: 0 auto 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-img img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .main-price {
+      font-size: 38px;
+      font-weight: 900;
+      color: #ff8c00;
+      margin-bottom: 4px;
+    }
+
+    .per-bottle {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .benefits {
+      list-style: none;
+      text-align: left;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .benefits li {
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+    }
+
+    .benefits li::before {
+      content: "✓";
+      color: #ff8c00;
+      font-weight: 900;
+      font-size: 18px;
+      display: inline-block;
+      width: 20px;
+    }
+
+    .btn-buy {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #2ecc71;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 900;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-decoration: none;
+      transition: background 0.2s;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .btn-buy:hover {
+      background: #27ae60;
+    }
+
+    .cart-icon {
+      font-size: 18px;
+    }
+
+    /* Disclaimer / Footer */
+    .disclaimer-footer {
+      background: #1a1a1a;
+      color: #999;
+      padding: 40px 20px;
+      font-size: 12px;
+      line-height: 1.8;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .disclaimer-footer p {
+      max-width: 900px;
+      margin: 0 auto 15px;
+    }
+
+    .disclaimer-footer .footer-links {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .disclaimer-footer .footer-links a {
+      color: #ccc;
+      text-decoration: underline;
+      font-size: 12px;
+    }
+
+    .disclaimer-footer .footer-links a:hover {
+      color: #fff;
+    }
+
+    /* Responsivo */
+    @media (max-width: 960px) {
+      .pricing-section {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .price-card.featured {
+        width: 90%;
+        max-width: 360px;
+        transform: none;
+        order: -1;
+      }
+
+      .price-card {
+        width: 90%;
+        max-width: 360px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .header h1 {
+        font-size: 18px;
+      }
+
+      .main-price {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MKF9HT6T"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Header -->
+  <header class="header">
+    <h1>CAMP-USA</h1>
+    <p id="viewer-count"></p>
+  </header>
+
+  <!-- Banner de urgência -->
+  <div class="urgency-banner">
+    Presentation available only until: <strong id="deadline-date">Wednesday, 06/04/2026</strong>
+  </div>
+
+  <!-- Vídeo -->
+  <section class="video-section">
+    <div class="video-wrapper">
+      <vturb-smartplayer id="vid-6a1f5ac8c2771546fc15b6dd" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
+      <script type="text/javascript">
+        var s=document.createElement("script");
+        s.src="https://scripts.converteai.net/5eacad5b-3bd7-422a-ba9d-81810e988eda/players/6a1f5ac8c2771546fc15b6dd/v4/player.js",
+        s.async=!0,document.head.appendChild(s);
+      </script>
+    </div>
+    <div class="sound-notice">
+      <svg class="sound-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+        <path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.08"/>
+      </svg>
+      Please make sure your sound is turned on.
+    </div>
+  </section>
+
+  <!-- Preços (3 kits) -->
+  <section class="pricing-section" id="kits">
+
+    <!-- 2 Bottles (Starter) -->
+    <div class="price-card">
+      <div class="plan-title">STARTER</div>
+      <div class="quantity">2 BOTTLES</div>
+      <div class="supply-duration">60 DAY SUPPLY</div>
+      <div class="product-img">
+        <img src="jar-horsewood-2.png" alt="2 Bottles">
+      </div>
+      <div class="main-price">$150</div>
+      <div class="per-bottle">$75 per bottle</div>
+      <ul class="benefits">
+        <li>3 Free Bonuses</li>
+        <li>Free US Shipping</li>
+      </ul>
+      <a href="https://buygoods.com/secure/checkout.html?account_id=12662&aff_id=1846&product_codename=hrsw2_fun_b3&redirect=aHR0cHM6Ly9ob3JzZXdvb2QudXMvZnVubmVsYjMvdXAxLTAx" class="btn-buy">
+        <span>BUY NOW</span>
+        <span class="cart-icon">🛒</span>
+      </a>
+    </div>
+
+    <!-- 6 Bottles (Best Value) - Central com destaque -->
+    <div class="price-card featured">
+      <div class="most-popular-badge">MOST POPULAR</div>
+      <div class="plan-title">BEST VALUE</div>
+      <div class="quantity">6 BOTTLES</div>
+      <div class="supply-duration">180 DAY SUPPLY</div>
+      <div class="product-img">
+        <img src="jar-horsewood-6.png" alt="6 Bottles">
+      </div>
+      <div class="main-price">$294</div>
+      <div class="per-bottle">$49 per bottle</div>
+      <ul class="benefits">
+        <li>3 Free Bonuses</li>
+        <li>Free US Shipping</li>
+      </ul>
+      <a href="https://buygoods.com/secure/checkout.html?account_id=12662&aff_id=1846&product_codename=hrsw6_fun_b3&redirect=aHR0cHM6Ly9ob3JzZXdvb2QudXMvZnVubmVsYjMvdXAxLTA2" class="btn-buy">
+        <span>BUY NOW</span>
+        <span class="cart-icon">🛒</span>
+      </a>
+    </div>
+
+    <!-- 3 Bottles (Bundle) -->
+    <div class="price-card">
+      <div class="plan-title">BUNDLE</div>
+      <div class="quantity">3 BOTTLES</div>
+      <div class="supply-duration">90 DAY SUPPLY</div>
+      <div class="product-img">
+        <img src="jar-horsewood-3.png" alt="3 Bottles">
+      </div>
+      <div class="main-price">$177</div>
+      <div class="per-bottle">$59 per bottle</div>
+      <ul class="benefits">
+        <li>3 Free Bonuses</li>
+        <li>Free US Shipping</li>
+      </ul>
+      <a href="https://buygoods.com/secure/checkout.html?account_id=12662&aff_id=1846&product_codename=hrsw3_fun_b3&redirect=aHR0cHM6Ly9ob3JzZXdvb2QudXMvZnVubmVsYjMvdXAxLTAz" class="btn-buy">
+        <span>BUY NOW</span>
+        <span class="cart-icon">🛒</span>
+      </a>
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer class="disclaimer-footer">
+    <p>2026 &copy; All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Número aleatório de pessoas assistindo (800-1000), atualiza a cada 5s
+    function updateViewers() {
+      var viewers = Math.floor(Math.random() * (1000 - 800 + 1)) + 800;
+      document.getElementById('viewer-count').textContent = viewers + ' People watching this video';
+    }
+    updateViewers();
+    setInterval(updateViewers, 5000);
+  </script>
+
+  <script>
+    // Atualiza a data do banner dinamicamente (inglês)
+    (function() {
+      var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+      var months = ['01','02','03','04','05','06','07','08','09','10','11','12'];
+      var hoje = new Date();
+      var dayName = days[hoje.getDay()];
+      var dd = String(hoje.getDate()).padStart(2, '0');
+      var mm = months[hoje.getMonth()];
+      var yyyy = hoje.getFullYear();
+      document.getElementById('deadline-date').textContent = dayName + ', ' + mm + '/' + dd + '/' + yyyy;
+    })();
+  </script>
+
+  <script>
+    // Revela kits após 33 minutos e 1 segundo (33*60+1 = 1981 segundos)
+    setTimeout(function() {
+      document.querySelector('.pricing-section').classList.add('revealed');
+    }, 1981000);
+  </script>
+
+  <script>
+    // Repassa parâmetros da URL (UTM, gclid, etc.) para os links de checkout buygoods
+    (function() {
+      var params = window.location.search;
+      if (!params) return;
+      var links = document.querySelectorAll('a[href*="buygoods.com/secure/checkout.html"]');
+      for (var i = 0; i < links.length; i++) {
+        var href = links[i].getAttribute('href');
+        var separator = href.indexOf('?') !== -1 ? '&' : '?';
+        links[i].setAttribute('href', href + separator + params.substring(1));
+      }
+    })();
+  </script>
+
+</body>
+</html>
