@@ -35,9 +35,9 @@
       color: #eee;
     }
 
-    /* Header */
+    /* Header (ESTILO ORIGINAL RESTAURADO) */
     .header {
-      background: #111;
+      background: #cc0000;
       padding: 16px 20px;
       display: flex;
       flex-direction: column;
@@ -54,16 +54,16 @@
     }
 
     #viewer-count {
-      color: #ccc;
+      color: #fff;
       font-size: 13px;
       font-weight: 400;
       margin: 0;
     }
 
-    /* Banner de urgência */
+    /* Banner de urgência (ESTILO ORIGINAL RESTAURADO) */
     .urgency-banner {
-      background: #1a0000;
-      color: #ccc;
+      background: #990000;
+      color: #fff;
       text-align: center;
       padding: 10px 15px;
       font-size: 14px;
@@ -71,10 +71,9 @@
 
     .urgency-banner strong {
       font-weight: 700;
-      color: #fff;
     }
 
-    /* Seção do vídeo */
+    /* Seção do vídeo (fundo preto) */
     .video-section {
       background: #0a0a0a;
       padding: 30px 15px 10px;
@@ -463,10 +462,10 @@
 
   <script>
     // Revela kits após 33 minutos e 1 segundo (33*60+1 = 1981 segundos)
-    // ⚠️ Para TESTES: troque 1981000 por 20000 (20 segundos) e volte ao valor original depois.
+    // ⚠️ Para TESTES: troque 1981000 por 20000 (20 segundos) e depois volte ao original.
     setTimeout(function() {
       document.querySelector('.pricing-section').classList.add('revealed');
-    }, 20000 );
+    }, 1981000);
   </script>
 
   <script>
