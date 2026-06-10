@@ -25,7 +25,9 @@
     }(window, document, 'ttq');
     </script>
 
+    <!-- Script Universal do RedTrack (correto para manter clickid) -->
     <script src="https://insight.lordvigor7.shop/uniprelpclick.js?attribution=lastpaid&cookiedomain=&cookieduration=90&defaultcampaignid=&regviewonce=false"></script>
+    
     <style>
         /* CSS Reset & Basic Setup */
         * {
@@ -36,7 +38,6 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            /* Recreating the dark red gradient background */
             background: radial-gradient(circle at center, #561a1a 0%, #1e0606 100%);
             color: #ffffff;
             min-height: 100vh;
@@ -55,14 +56,13 @@
             align-items: center;
         }
 
-        /* Video Wrapper to enforce rounded corners like the image */
         .video-wrapper {
             width: 100%;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
             margin-bottom: 30px;
-            background-color: #000; /* Fallback before video loads */
+            background-color: #000;
         }
 
         .cta-text {
@@ -97,7 +97,6 @@
             transform: translateY(-2px);
         }
 
-        /* Mobile Adjustments */
         @media (max-width: 600px) {
             .cta-text {
                 font-size: 20px;
@@ -127,7 +126,8 @@
             Click the button below to watch the presentation <span class="highlight-red">FREE!</span>
         </p>
 
-        <a href="tiktok2.html" class="cta-button">
+        <!-- BOTÃO CORRIGIDO: usando endpoint /preclick do RedTrack -->
+        <a href="https://insight.lordvigor7.shop/preclick" class="cta-button">
             WATCH NOW &rarr;
         </a>
 
