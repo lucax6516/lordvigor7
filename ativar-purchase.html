@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Disparo manual de Purchase — TikTok</title>
+  <style>
+    body{font:17px/1.6 system-ui,sans-serif;background:#101827;color:#f3f6fc;margin:0;padding:32px 18px}
+    main{max-width:680px;margin:30px auto;padding:28px;border:1px solid #34425b;border-radius:16px;background:#192439}
+    h1{font-size:27px;line-height:1.3}code{overflow-wrap:anywhere;color:#a9d9ff}
+    button{font:700 17px system-ui;padding:16px 22px;border:0;border-radius:9px;background:#7aefc5;color:#102b24;cursor:pointer;width:100%}
+    button:disabled{opacity:.5;cursor:default}#status{white-space:pre-wrap;background:#0f1829;padding:16px;border-radius:8px}
+    small{display:block;color:#bdcbe0;margin-top:18px}
+  </style>
+</head>
+<body>
+<main>
+  <h1>Disparar Purchase nos dois pixels</h1>
+  <p><code>D2DCDNRC77U89NHROEAG</code><br><code>D8G84DJC77U8POE0517G</code></p>
+  <p>Este botão envia um evento normal de <strong>Purchase</strong> para cada pixel, com valor <strong>USD 0</strong>. Não é uma compra real nem um evento isolado na aba Test Events: pode entrar na contagem normal de eventos.</p>
+  <button id="send" type="button">Disparar uma vez nos dois pixels</button>
+  <p id="status" role="status">Aguardando seu clique. Nenhum pixel foi carregado por esta página ainda.</p>
+  <small>Mantenha a página aberta após clicar. Confira o recebimento no TikTok Pixel Helper e no Gerenciador de Eventos. O disparo não garante que a opção seja liberada na campanha. Remova este arquivo do site depois de usar.</small>
+</main>
+<script>
+(() => {
+  'use strict';
+  const PIXELS = ['D2DCDNRC77U89NHROEAG', 'D8G84DJC77U8POE0517G'];
+  const KEY = 'manual_purchase_two_pixels_v1';
+  const status = document.getElementById('status');
+  const button = document.getElementById('send');
+  let previous = null;
+  try { previous = localStorage.getItem(KEY); } catch (_) {}
+  if (previous) {
+    button.disabled = true;
+    status.textContent = 'Este navegador já solicitou o disparo nesta página.\n' + previous + '\nConfira no TikTok antes de tentar novamente.';
+  }
+  button.addEventListener('click', () => {
+    button.disabled = true;
+    if (navigator.globalPrivacyControl) {
+      status.textContent = 'O navegador informou Global Privacy Control. Nenhum evento foi disparado.';
+      return;
+    }
+    if (location.protocol !== 'https:') {
+      status.textContent = 'Publique este arquivo no seu site e abra pelo endereço HTTPS. Não execute como arquivo local.';
+      button.disabled = false;
+      return;
+    }
+    const eventId = 'manual_setup_' + (crypto.randomUUID ? crypto.randomUUID() : Date.now() + '_' + Math.random().toString(36).slice(2));
+    // Official TikTok queue pattern. Each event is addressed to its own pixel instance.
+    window.TiktokAnalyticsObject = 'ttq';
+    const ttq = window.ttq = window.ttq || [];
+    ttq.methods = ['page','track','identify','instances','debug','on','off','once','ready','alias','group','enableCookie','disableCookie','holdConsent','revokeConsent','grantConsent'];
+    ttq.setAndDefer = function(obj, method) {
+      obj[method] = function() { obj.push([method].concat(Array.prototype.slice.call(arguments))); };
+    };
+    ttq.methods.forEach(method => ttq.setAndDefer(ttq, method));
+    ttq.instance = function(id) {
+      const instance = ttq._i[id] || [];
+      ttq.methods.forEach(method => ttq.setAndDefer(instance, method));
+      return instance;
+    };
+    const blocked = [];
+    ttq.load = function(id) {
+      const sdk = 'https://analytics.tiktok.com/i18n/pixel/events.js';
+      ttq._i = ttq._i || {}; ttq._i[id] = []; ttq._i[id]._u = sdk;
+      ttq._t = ttq._t || {}; ttq._t[id] = Date.now();
+      ttq._o = ttq._o || {}; ttq._o[id] = {};
+      const script = document.createElement('script');
+      script.async = true; script.src = sdk + '?sdkid=' + encodeURIComponent(id) + '&lib=ttq';
+      script.onerror = () => {
+        blocked.push(id);
+        status.textContent = 'Não foi possível carregar o SDK para: ' + blocked.join(', ') + '.\nO outro pixel pode ter recebido. Confira no Pixel Helper antes de repetir.\nID: ' + eventId;
+      };
+      document.head.appendChild(script);
+    };
+    try {
+      PIXELS.forEach(id => {
+        ttq.load(id);
+        ttq.instance(id).page();
+        ttq.instance(id).track('Purchase', { value: 0, currency: 'USD' }, { event_id: eventId });
+      });
+      const record = new Date().toISOString() + ' | ' + eventId;
+      try { localStorage.setItem(KEY, record); } catch (_) {}
+      status.textContent = 'Purchase colocado na fila de envio dos dois pixels.\nValor: USD 0 por pixel.\nID: ' + eventId + '\n\nIsso não confirma recebimento. Aguarde com a página aberta e confira no TikTok Pixel Helper/Gerenciador de Eventos.';
+    } catch (_) {
+      status.textContent = 'Ocorreu um erro ao preparar o envio. Confira o Pixel Helper e o console do navegador.\nID: ' + eventId;
+    }
+  });
+})();
+</script>
+</body>
+</html>
