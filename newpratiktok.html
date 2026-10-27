@@ -25,107 +25,36 @@
     }(window, document, 'ttq');
     </script>
 
-    <!-- Script Universal do RedTrack (correto para manter clickid) -->
-    <script src="https://insight.lordvigor7.shop/uniprelpclick.js?attribution=lastpaid&cookiedomain=&cookieduration=90&defaultcampaignid=&regviewonce=false"></script>
-    
+
     <style>
         /* CSS Reset & Basic Setup */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background: radial-gradient(circle at center, #561a1a 0%, #1e0606 100%);
-            color: #ffffff;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 800px;
-            padding: 40px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .video-wrapper {
-            width: 100%;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-            margin-bottom: 30px;
-            background-color: #000;
-        }
-
-        .cta-text {
-            font-size: 24px;
-            font-weight: 400;
-            margin-bottom: 30px;
-            line-height: 1.4;
-        }
-
-        .highlight-red {
-            color: #ed3833;
-            font-weight: bold;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: #e53935;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 16px 40px;
-            font-size: 16px;
-            font-weight: 600;
-            border-radius: 6px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 15px rgba(229, 57, 53, 0.3);
-        }
-
-        .cta-button:hover {
-            background-color: #c62828;
-            transform: translateY(-2px);
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: radial-gradient(circle at center, #561a1a 0%, #1e0606 100%); color: #ffffff; min-height: 100vh; display: flex; justify-content: center; align-items: center; text-align: center; }
+        .container { width: 100%; max-width: 800px; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; }
+        .video-wrapper { width: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); margin-bottom: 30px; background-color: #000; }
+        .cta-text { font-size: 24px; font-weight: 400; margin-bottom: 30px; line-height: 1.4; }
+        .highlight-red { color: #ed3833; font-weight: bold; }
+        .cta-button { display: inline-block; background-color: #e53935; color: #ffffff; text-decoration: none; padding: 16px 40px; font-size: 16px; font-weight: 600; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.5px; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 15px rgba(229, 57, 53, 0.3); }
+        .cta-button:hover { background-color: #c62828; transform: translateY(-2px); }
         @media (max-width: 600px) {
-            .cta-text {
-                font-size: 20px;
-            }
-            .cta-button {
-                padding: 14px 30px;
-                font-size: 14px;
-            }
+            .cta-text { font-size: 20px; }
+            .cta-button { padding: 14px 30px; font-size: 14px; }
         }
     </style>
+  <!-- Rastreamento BuyGoods via Cloudflare Worker -->
+  <script defer src="/bg-track/client.js"></script>
 </head>
 <body>
-
     <div class="container">
-        
         <div class="video-wrapper">
             <vturb-smartplayer id="vid-6ae12e145a97daff6781d909" style="display: block; margin: 0 auto; width: 100%; "><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 56.25% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/2fe5d600-8c23-4dfc-84bd-ccfc7d323915/players/6ae12e145a97daff6781d909/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
         </div>
-
         <p class="cta-text">
             Click the button below to watch the presentation <span class="highlight-red">FREE!</span>
         </p>
-
-        <!-- BOTÃO CORRIGIDO: usando endpoint /preclick do RedTrack -->
         <a href="tiktok2.html" class="cta-button">
             WATCH NOW &rarr;
         </a>
-
     </div>
-
 </body>
 </html>
