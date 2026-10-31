@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CAMP-USAdw</title>
+  <title>Presentación</title>
 
   <!-- Meta Pixel Code -->
   <script>
@@ -143,168 +143,6 @@
       height: 22px;
     }
 
-    /* ===== CLASSE DE REVELAÇÃO DO VTURB ===== */
-    .secao-oculta {
-      display: none;
-    }
-
-    /* Seção de preços */
-    .pricing-section {
-      background: #0a0a0a;
-      padding: 40px 15px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 20px;
-    }
-
-    .price-card {
-      background: #1a1a1a;
-      border: 2px solid #333;
-      border-radius: 16px;
-      padding: 30px 20px 25px;
-      width: 280px;
-      text-align: center;
-      position: relative;
-      transition: transform 0.2s;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .price-card.featured {
-      width: 320px;
-      border: 2px solid #ff8c00;
-      box-shadow: 0 0 30px rgba(255, 140, 0, 0.7);
-      transform: scale(1.05);
-      z-index: 2;
-    }
-
-    .most-popular-badge {
-      position: absolute;
-      top: -14px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #ff8c00;
-      color: #000;
-      font-size: 13px;
-      font-weight: 800;
-      padding: 5px 20px;
-      border-radius: 20px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      white-space: nowrap;
-    }
-
-    .plan-title {
-      font-size: 22px;
-      font-weight: 900;
-      color: #fff;
-      text-transform: uppercase;
-      margin-top: 15px;
-      margin-bottom: 8px;
-    }
-
-    .quantity {
-      font-size: 32px;
-      font-weight: 900;
-      color: #fff;
-      line-height: 1.1;
-    }
-
-    .supply-duration {
-      font-size: 14px;
-      color: #ff8c00;
-      font-weight: 700;
-      margin-top: 4px;
-      margin-bottom: 18px;
-      text-transform: uppercase;
-    }
-
-    .product-img {
-      width: 180px;
-      height: 150px;
-      margin: 0 auto 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .product-img img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-    }
-
-    .main-price {
-      font-size: 38px;
-      font-weight: 900;
-      color: #ff8c00;
-      margin-bottom: 4px;
-    }
-
-    .per-bottle {
-      font-size: 15px;
-      color: #aaa;
-      margin-bottom: 15px;
-      font-weight: 600;
-    }
-
-    .benefits {
-      list-style: none;
-      text-align: left;
-      width: 100%;
-      margin-bottom: 20px;
-    }
-
-    .benefits li {
-      font-size: 14px;
-      color: #ccc;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 600;
-    }
-
-    .benefits li::before {
-      content: "✓";
-      color: #ff8c00;
-      font-weight: 900;
-      font-size: 18px;
-      display: inline-block;
-      width: 20px;
-    }
-
-    .btn-buy {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background: #2ecc71;
-      color: #fff;
-      font-size: 16px;
-      font-weight: 900;
-      padding: 14px 30px;
-      border: none;
-      border-radius: 8px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      text-decoration: none;
-      transition: background 0.2s;
-      width: 100%;
-      cursor: pointer;
-    }
-
-    .btn-buy:hover {
-      background: #27ae60;
-    }
-
-    .cart-icon {
-      font-size: 18px;
-    }
-
     /* Disclaimer / Footer */
     .disclaimer-footer {
       background: #111;
@@ -321,51 +159,9 @@
       margin: 0 auto 15px;
     }
 
-    .disclaimer-footer .footer-links {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .disclaimer-footer .footer-links a {
-      color: #ccc;
-      text-decoration: underline;
-      font-size: 12px;
-    }
-
-    .disclaimer-footer .footer-links a:hover {
-      color: #fff;
-    }
-
-    /* Responsivo */
-    @media (max-width: 960px) {
-      .pricing-section {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .price-card.featured {
-        width: 90%;
-        max-width: 360px;
-        transform: none;
-        order: -1;
-      }
-
-      .price-card {
-        width: 90%;
-        max-width: 360px;
-      }
-    }
-
     @media (max-width: 600px) {
       .header h1 {
         font-size: 18px;
-      }
-
-      .main-price {
-        font-size: 30px;
       }
     }
   </style>
@@ -382,7 +178,7 @@
   </header>
 
   <div class="urgency-banner">
-    Presentation available only until: <strong id="deadline-date"></strong>
+    Presentación disponible solo hasta: <strong id="deadline-date"></strong>
   </div>
 
   <section class="video-section">
@@ -403,94 +199,28 @@
         <path d="M11 5L6 9H2v6h4l5 4V5z"/>
         <path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.08"/>
       </svg>
-      Please make sure your sound is turned on.
+      Asegúrate de tener el sonido activado.
     </div>
   </section>
 
-  <!-- WRAPPER OCULTO PARA O VTURB REVELAR -->
-  <div class="secao-oculta">
-
-    <section class="pricing-section" id="kits">
-
-      <div class="price-card">
-        <div class="plan-title">STARTER</div>
-        <div class="quantity">2 BOTTLES</div>
-        <div class="supply-duration">60 DAY SUPPLY</div>
-        <div class="product-img">
-          <img src="jar-horsewood-2.png" alt="2 Bottles">
-        </div>
-        <div class="main-price">$158</div>
-        <div class="per-bottle">$79 per bottle</div>
-        <ul class="benefits">
-          <li>3 Free Bonuses</li>
-        </ul>
-        <a href="https://buygoods.com/secure/checkout.html?account_id=12662&aff_id=1846&product_codename=hrsw2_fun_b3&redirect=aHR0cHM6Ly9ob3JzZXdvb2QudXMvZnVubmVsYjMvdXAxLTAx" class="btn-buy">
-          <span>BUY NOW</span>
-          <span class="cart-icon">🛒</span>
-        </a>
-      </div>
-
-      <div class="price-card featured">
-        <div class="most-popular-badge">MOST POPULAR</div>
-        <div class="plan-title">BEST VALUE</div>
-        <div class="quantity">6 BOTTLES</div>
-        <div class="supply-duration">180 DAY SUPPLY</div>
-        <div class="product-img">
-          <img src="jar-horsewood-6.png" alt="6 Bottles">
-        </div>
-        <div class="main-price">$294</div>
-        <div class="per-bottle">$49 per bottle</div>
-        <ul class="benefits">
-          <li>3 Free Bonuses</li>
-          <li>Free US Shipping</li>
-        </ul>
-        <a href="https://buygoods.com/secure/checkout.html?account_id=12662&aff_id=1846&product_codename=hrsw6_fun_b3&redirect=aHR0cHM6Ly9ob3JzZXdvb2QudXMvZnVubmVsYjMvdXAxLTA2" class="btn-buy">
-          <span>BUY NOW</span>
-          <span class="cart-icon">🛒</span>
-        </a>
-      </div>
-
-      <div class="price-card">
-        <div class="plan-title">BUNDLE</div>
-        <div class="quantity">3 BOTTLES</div>
-        <div class="supply-duration">90 DAY SUPPLY</div>
-        <div class="product-img">
-          <img src="jar-horsewood-3.png" alt="3 Bottles">
-        </div>
-        <div class="main-price">$207</div>
-        <div class="per-bottle">$69 per bottle</div>
-        <ul class="benefits">
-          <li>3 Free Bonuses</li>
-        </ul>
-        <a href="https://buygoods.com/secure/checkout.html?account_id=12662&aff_id=1846&product_codename=hrsw3_fun_b3_af&redirect=aHR0cHM6Ly9ob3JzZXdvb2QudXMvZnVubmVsYjMvdXAxLTAzz" class="btn-buy">
-          <span>BUY NOW</span>
-          <span class="cart-icon">🛒</span>
-        </a>
-      </div>
-
-    </section>
-
-    <footer class="disclaimer-footer">
-      <p>2026 &copy; All rights reserved.</p>
-    </footer>
-
-  </div>
-  <!-- FIM DO WRAPPER OCULTO -->
+  <footer class="disclaimer-footer">
+    <p>2026 &copy; Todos los derechos reservados.</p>
+  </footer>
 
   <script>
     // Número aleatório de pessoas assistindo (800-1000)
     function updateViewers() {
       var viewers = Math.floor(Math.random() * (1000 - 800 + 1)) + 800;
-      document.getElementById('viewer-count').textContent = viewers + ' People watching this video';
+      document.getElementById('viewer-count').textContent = viewers + ' personas viendo este video';
     }
     updateViewers();
     setInterval(updateViewers, 5000);
   </script>
 
   <script>
-    // Atualiza a data do banner dinamicamente (inglês)
+    // Atualiza a data do banner dinamicamente (espanhol)
     (function() {
-      var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+      var days = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
       var months = ['01','02','03','04','05','06','07','08','09','10','11','12'];
       var hoje = new Date();
       var dayName = days[hoje.getDay()];
@@ -498,22 +228,6 @@
       var mm = months[hoje.getMonth()];
       var yyyy = hoje.getFullYear();
       document.getElementById('deadline-date').textContent = dayName + ', ' + mm + '/' + dd + '/' + yyyy;
-    })();
-  </script>
-
-  <!-- VTurb controla o reveal da div .secao-oculta -->
-
-  <script>
-    // Repassa parâmetros da URL (UTM, gclid, etc.)
-    (function() {
-      var params = window.location.search;
-      if (!params) return;
-      var links = document.querySelectorAll('a[href*="buygoods.com/secure/checkout.html"]');
-      for (var i = 0; i < links.length; i++) {
-        var href = links[i].getAttribute('href');
-        var separator = href.indexOf('?') !== -1 ? '&' : '?';
-        links[i].setAttribute('href', href + separator + params.substring(1));
-      }
     })();
   </script>
 
